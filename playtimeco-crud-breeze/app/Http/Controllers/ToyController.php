@@ -15,10 +15,7 @@ class ToyController extends Controller
     {
         $toys = Toy::all();
 
-        return response()->json([
-            'status' => true,
-            'toys' => $toys
-        ]);
+        return view('toys.index', compact('toys'));
     }
 
     /**
