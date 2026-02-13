@@ -3,18 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Toy extends Model
 {
     
     protected $fillable = [
-        "supervisor",
+        "user_id",
         "alias",
         "name",
+        "gender",
+        "height",
+        "weight",
         "subject",
         "status",
         "creation_date",
-        "species"
+        "species",
+        "description"
     ];
 
     public function user()

@@ -13,7 +13,7 @@ class ToyController extends Controller
      */
     public function index()
     {
-        $toys = Toy::all();
+        $toys = Toy::with('user_id')->get();
 
         return view('toys.index', compact('toys'));
     }
@@ -32,34 +32,24 @@ class ToyController extends Controller
     public function store(Request $request)
     {
 
-        $toy = $request->validate([
-            'supervisor' => 'nullable|integer',
+        $request->validate([
+            'user_id' => 'nullable|integer',
             'alias' => 'required|string|max:100',
             'name' => 'required|string|max:50',
+            'gender' => 'required|string',
+            'height' => 'required|float',
+            'weight' => 'required|float',
             'subject' => 'required|integer',
             'status' => 'required|string',
             'creation_date' => 'required|date',
             'species' => 'required|string|max:100',
+            'description' => 'nullable|string|max:500'
         ]);
 
-        if(!$toy) {
+        Toy::create($request->all());
 
-            return response()->json([
-                'status' => false,
-                'message' => 'Unable to store Toy.'
-            ], 500);
-
-        } else {
-
-            $newToy = Toy::create($request->all());
-
-            return response()->json([
-                'status' => true,
-                'message' => 'Toy stored successfully.',
-                'toys' => $newToy
-            ]);
-
-        }
+        return redirect()->route('toys.index')
+                        ->with('success', 'Toy monitoring successfully initiated');
 
     }
 
@@ -72,18 +62,8 @@ class ToyController extends Controller
 
         $display = Toy::find($toy->id);
 
-        if(!$display) {
-
-            return response()->json([
-                'status' => false,
-                'message' => 'Toy not found.'
-            ], 404);
-
-        } else {
-
-            return response()->json(['toy' => $display]);
-
-        }
+        return redirect()->route('toys.index')
+                        ->with('success', 'Toy monitoring successfully initiated');
     }
 
     /**
@@ -100,31 +80,21 @@ class ToyController extends Controller
     public function update(Request $request, Toy $toy)
     {
         $request->validate([
-            'supervisor' => 'nullable|integer',
+            'user_id' => 'nullable|integer',
             'alias' => 'required|string|max:100',
             'name' => 'required|string|max:50',
+            'gender' => 'required|string',
+            'height' => 'required|float',
+            'weight' => 'required|float',
             'subject' => 'required|integer',
             'status' => 'required|string',
             'creation_date' => 'required|date',
             'species' => 'required|string|max:100',
+            'description' => 'nullable|string|max:500'
         ]);
 
-        if(!$toy->update($request->all())) {
-
-            return response()->json([
-                'status' => false,
-                'message' => 'Unable to update toy.'
-            ], 404);
-
-        } else {
-
-            return response()->json([
-                'status' => true,
-                'message' => 'Toy updated successfully.',
-                'toy' => $toy
-            ]);
-
-        }
+        $toy->update($request->all());
+        return redirect()->route('toys.index')->with('success', 'Toy progress reported successfully.');
 
     }
 
@@ -134,21 +104,8 @@ class ToyController extends Controller
     public function destroy(Toy $toy)
     {
 
-        if(!$toy->delete()) {
+        $toy->delete();
+        return redirect()->route('toys.index')->with('success', 'Toy failed.');
 
-            return response()->json([
-                'status' => false,
-                'message' => 'Unable to delete toy.'
-            ], 404);
-
-        } else {
-
-            return response()->json([
-                'status' => true,
-                'message' => 'Toy deleted successfully',
-                'toys' => $toy
-            ]);
-
-        }
     }
 }

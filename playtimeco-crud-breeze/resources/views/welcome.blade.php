@@ -5,7 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'PlaytimeCo') }}</title>
+    @section('title')
+        <title>{{ config('app.name', 'PlaytimeCo') }}</title>
+    @endsection
+    <link rel="shortcut icon" href="public/logo.png" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -14,7 +17,8 @@
     <!-- Font styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&family=Peralta&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Signika:wght@300..700&display=swap"
         rel="stylesheet">
 
     <!-- Styles / Scripts -->
@@ -1526,41 +1530,31 @@
 </head>
 
 <body
-    class="bg-[url(/public/playtimeco-factory.jpg)] bg-fixed bg-cover bg-center text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col backdrop-contrast-50 backdrop-blur-sm">
+    class="bg-[url(/public/welcome.jpg)] bg-fixed bg-cover bg-center text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col backdrop-brightness-100 backdrop-blur-sm">
 
     <div
-        class="flex items-center justify-center w-full h-32 transition-opacity opacity-100 duration-750 md:h-64 lg:grow starting:opacity-0">
+        class="flex items-center justify-center w-full min-h-screen transition-opacity opacity-100 duration-750 md:h-64 lg:grow starting:opacity-0 font-[Fredoka]">
         <main class="flex items-center justify-center w-full h-auto flex-col md:h-full lg:flex-column">
-            <h1 class="text-[60px] font-[peralta] font-[900] italic">
-                <span class="text-[#3DAAC4]">What</span>
-                <span class="text-[#E3393A]">time</span>
-                <span class="text-[#F0DC06]">is</span>
-                <span class="text-[#3DAAC4]">it</span>
-                <span class="text-[#E3393A]">?</span>
+            <h1 class="text-[60px] font-[Signika] font-[700] text-[#484740] text-shadow-lg">
+                FOSTERING <span class="underline decoration-4 decoration-[#FF4366]">HAPPINESS</span>
             </h1>
+            <p class="italic">There's lots of fun in store for you, It's almost Playtime</p>
             <div>
                 <img src="{{ asset('playtime-logo.png') }}" alt="playtimeco-crud-breeze/public/playtime-logo.png"
-                    class="w-[280px] h-[100px] mb-6 animate-bounce m-5">
+                    class="w-[280px] h-[100px] mb-6 m-5">
             </div>
             @if (Route::has('login'))
                 <div class="gap-4">
                     @auth
                         <a href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 font-[Nata_Sans] text-[#0F0F0F] bg-[#3DAAC4] border-[#19140035] hover:bg-[#44bddb] border text-[#1b1b18] rounded-lg text-base leading-normal">
+                            class="inline-block px-10 py-1.5 text-[#484740] bg-[#6098C7] text-[#1b1b18] border border-[3.5px] border-[#484740] shadow-[0_5px_0_rgb(72_71_64)] hover:bg-[#69C9DD] transition duration-300 ease-in-out hover:translate-y-2 hover:shadow-none text-xl leading-normal">
                             Dashboard
                         </a>
                     @else
                         <a href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 font-[Nata_Sans] text-[#0F0F0F] bg-[#3DAAC4] text-[#1b1b18] border border-transparent hover:bg-[#44bddb] transition duration-300 ease-in-out hover:scale-110 hover:shadow-[0_0_25px_rgb(82_243_255)] rounded-lg text-base leading-normal">
+                            class="inline-block px-10 py-1.5 text-[#484740] bg-[#6098C7] text-[#1b1b18] border border-[3.5px] border-[#484740] shadow-[0_5px_0_rgb(72_71_64)] hover:bg-[#69C9DD] transition duration-300 ease-in-out hover:translate-y-2 hover:shadow-none text-xl leading-normal">
                             Log in
                         </a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 font-[Nata_Sans] text-[#0F0F0F] bg-[#F0DC06] border border-transparent transition duration-300 ease-in-out hover:scale-110 hover:shadow-[0_0_25px_rgb(255_252_82)] rounded-lg text-base leading-normal">
-                                Register
-                            </a>
-                        @endif
                     @endauth
                 </div>
             @endif

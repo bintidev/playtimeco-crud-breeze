@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <form method="POST" action="{{ route('toys.store') }}" class="font-[Fredoka]">
+    <form method="POST" action="{{ route('toys.update', $toy) }}" class="font-[Fredoka] px-6">
         @csrf
         @include ('toys.forms')
 
@@ -11,7 +11,7 @@
             </a>
 
             <x-primary-button class="ms-3">
-                {{ __('Initiate') }}
+                {{ __('Report') }}
             </x-primary-button>
         </div>
     </form>

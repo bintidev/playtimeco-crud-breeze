@@ -13,13 +13,18 @@ return new class extends Migration
     {
         Schema::create('toys', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('supervisor')->nullable()->constrained('users')->nullOnDelete(); // null if the assigned supervisor is deleted
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete(); // null if the assigned supervisor is deleted
             $table->string('alias');
             $table->string('name');
+            $table->enum('gender', ['Male', 'Female']);
+            $table->float('height', 2);
+            $table->float('weight', 2);
             $table->integer('subject');
             $table->enum('status', ['Alive', 'Deceased']);
             $table->date('creation_date');
             $table->string('species');
+            $table->string('description');
+            $table->timestamps();
         });
     }
 
