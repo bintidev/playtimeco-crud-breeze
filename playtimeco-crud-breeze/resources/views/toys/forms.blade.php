@@ -30,7 +30,7 @@
         <li class="w-full border-b border-[#FF6E7F] sm:border-b-0 sm:border-r">
             <div class="flex items-center ps-3">
                 <input id="horizontal-list-radio-license" type="radio"
-                    value="{{ old('name', ($toy->gender ?? '') == 'Male' ? 'checked' : '') }}" name="gender"
+                    value="Male" name="gender" @php $toy->gender == 'Male' ? 'checked' : '' @endphp
                     class="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-[#FF6E7F] checked:accent-[#FF6E7F] focus:ring-2 focus:outline-none focus:ring-[#FF6E7F]-subtle border border-default appearance-none">
                 <label for="horizontal-list-radio-license"
                     class="w-full py-3 select-none ms-2 text-sm font-medium text-heading">Male</label>
@@ -39,7 +39,7 @@
         <li class="w-full">
             <div class="flex items-center ps-3">
                 <input id="horizontal-list-radio-passport" type="radio"
-                    value="{{ old('name', ($toy->gender ?? '') == 'Female' ? 'checked' : '') }}" name="gender"
+                    value="Female" name="gender"  @php $toy->gender == 'Male' ? 'checked' : '' @endphp
                     class="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-[#FF6E7F] checked:accent-[#FF6E7F] focus:ring-2 focus:outline-none focus:ring-[#FF6E7F]-subtle border border-default appearance-none">
                 <label for="horizontal-list-radio-passport"
                     class="w-full py-3 select-none ms-2 text-sm font-medium text-heading">Female</label>
@@ -103,6 +103,7 @@
 <div class="mt-4 ">
     <x-input-label for="description" :value="__('Description')" />
 
-    <x-textarea-input id="description" class="block mt-1 w-full" name="description" type="text" required
-        autocomplete="name" value="{{ old('description', $toy->description ?? '') }}" />
+    <x-textarea-input id="description" class="block mt-1 w-full" name="description" required
+        autocomplete="name" value="{{ old('description', $toy->description ?? '') }}">
+    </x-textarea-input>
 </div>

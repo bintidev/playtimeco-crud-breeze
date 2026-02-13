@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <form method="POST" action="{{ route('toys.store') }}" class="font-[Fredoka]">
+    <form action="{{ route('toys.store') }}" class="font-[Fredoka]" method="POST">
         @csrf
         @include ('toys.forms')
 

@@ -13,7 +13,7 @@ class ToyController extends Controller
      */
     public function index()
     {
-        $toys = Toy::with('user_id')->get();
+        $toys = Toy::all();
 
         return view('toys.index', compact('toys'));
     }
@@ -37,8 +37,8 @@ class ToyController extends Controller
             'alias' => 'required|string|max:100',
             'name' => 'required|string|max:50',
             'gender' => 'required|string',
-            'height' => 'required|float',
-            'weight' => 'required|float',
+            'height' => 'required|numeric',
+            'weight' => 'required|numeric',
             'subject' => 'required|integer',
             'status' => 'required|string',
             'creation_date' => 'required|date',
@@ -62,8 +62,7 @@ class ToyController extends Controller
 
         $display = Toy::find($toy->id);
 
-        return redirect()->route('toys.index')
-                        ->with('success', 'Toy monitoring successfully initiated');
+        return view('toys.show', compact('display'));
     }
 
     /**
@@ -84,8 +83,8 @@ class ToyController extends Controller
             'alias' => 'required|string|max:100',
             'name' => 'required|string|max:50',
             'gender' => 'required|string',
-            'height' => 'required|float',
-            'weight' => 'required|float',
+            'height' => 'required|numeric',
+            'weight' => 'required|numeric',
             'subject' => 'required|integer',
             'status' => 'required|string',
             'creation_date' => 'required|date',
