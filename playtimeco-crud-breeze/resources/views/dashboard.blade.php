@@ -9,13 +9,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-8">
             <div class="bg-[#484740] overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <h3 class="text-2xl font-semibold text-white mb-2 font-[Signika]">Welcome to PlaytimeCo Dashboard
+                    </h3>
                     {{ __("You're logged in!") }}
                 </div>
             </div>
         </div>
 
         <div class="flex justify-center align-center">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 max-w-7xl mx-auto w-full">
+            <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 px-4 max-w-7xl mx-auto w-full">
                 <div
                     class="col-span-2 px-8 py-6 border-2 border-[#FFB544] shadow-[10px_10px_0_rgb(255_181_68/0.43)] bg-[#FFF7EC]">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -62,7 +64,7 @@
                     </div>
                 </div>
                 <div
-                    class="border-2 border-[#FFB544] shadow-[10px_10px_0_rgb(255_181_68/0.43)] block p-6 border bg-[#FFF7EC]">
+                    class="border-2 border-[#FFB544] shadow-[10px_10px_0_rgb(255_181_68/0.43)] p-6 border bg-[#FFF7EC]">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="#FF4366" class="size-10">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -78,7 +80,7 @@
                     </a>
                 </div>
                 <div
-                    class="border-2 border-[#FFB544] shadow-[10px_10px_0_rgb(255_181_68/0.43)] block p-6 border bg-[#FFF7EC]">
+                    class="border-2 border-[#FFB544] shadow-[10px_10px_0_rgb(255_181_68/0.43)] p-6 border bg-[#FFF7EC]">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="#FF4366" class="size-10">
                         <path stroke-linecap="round" stroke-linejoin="round"

@@ -17,13 +17,14 @@ return new class extends Migration
             $table->string('alias');
             $table->string('name');
             $table->enum('gender', ['Male', 'Female']);
-            $table->float('height', 2);
-            $table->float('weight', 2);
+            $table->float('height', 2)->nullable();
+            $table->float('weight', 2)->nullable();
             $table->integer('subject');
             $table->enum('status', ['Alive', 'Deceased']);
             $table->date('creation_date');
             $table->string('species');
-            $table->string('description');
+            $table->string('description')->nullable();
+            $table->string('visual')->nullable();
             $table->timestamps();
         });
     }

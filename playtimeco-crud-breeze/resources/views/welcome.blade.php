@@ -5,10 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    @section('title')
-        <title>{{ config('app.name', 'PlaytimeCo') }}</title>
-    @endsection
-    <link rel="shortcut icon" href="public/logo.png" type="image/x-icon">
+    <title>Welcome to PlaytimeCo</title>
+
+    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -1530,7 +1529,7 @@
 </head>
 
 <body
-    class="bg-[url(/public/welcome.jpg)] bg-fixed bg-cover bg-center text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col backdrop-brightness-100 backdrop-blur-sm">
+    class="bg-[url(/public/img/welcome.jpg)] bg-fixed bg-cover bg-center text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col backdrop-brightness-100 backdrop-blur-sm">
 
     <div
         class="flex items-center justify-center w-full min-h-screen transition-opacity opacity-100 duration-750 md:h-64 lg:grow starting:opacity-0 font-[Fredoka]">
@@ -1540,7 +1539,7 @@
             </h1>
             <p class="italic">There's lots of fun in store for you, It's almost Playtime</p>
             <div>
-                <img src="{{ asset('playtime-logo.png') }}" alt="playtimeco-crud-breeze/public/playtime-logo.png"
+                <img src="{{ asset('/img/playtime-logo.png') }}" alt="playtimeco-crud-breeze/public/playtime-logo.png"
                     class="w-[280px] h-[100px] mb-6 m-5">
             </div>
             @if (Route::has('login'))

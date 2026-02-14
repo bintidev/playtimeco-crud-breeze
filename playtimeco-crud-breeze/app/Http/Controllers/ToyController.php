@@ -13,7 +13,7 @@ class ToyController extends Controller
      */
     public function index()
     {
-        $toys = Toy::all();
+        $toys = Toy::with('user')->get();
 
         return view('toys.index', compact('toys'));
     }
@@ -37,13 +37,14 @@ class ToyController extends Controller
             'alias' => 'required|string|max:100',
             'name' => 'required|string|max:50',
             'gender' => 'required|string',
-            'height' => 'required|numeric',
-            'weight' => 'required|numeric',
+            'height' => 'nullable|numeric',
+            'weight' => 'nullable|numeric',
             'subject' => 'required|integer',
             'status' => 'required|string',
             'creation_date' => 'required|date',
             'species' => 'required|string|max:100',
-            'description' => 'nullable|string|max:500'
+            'description' => 'nullable|string|max:500',
+            'visual' => 'nullable|string|max:500'
         ]);
 
         Toy::create($request->all());
@@ -60,7 +61,7 @@ class ToyController extends Controller
     public function show(Toy $toy)
     {
 
-        $display = Toy::find($toy->id);
+        $display = Toy::with('user')->find($toy->id);
 
         return view('toys.show', compact('display'));
     }
@@ -83,13 +84,14 @@ class ToyController extends Controller
             'alias' => 'required|string|max:100',
             'name' => 'required|string|max:50',
             'gender' => 'required|string',
-            'height' => 'required|numeric',
-            'weight' => 'required|numeric',
+            'height' => 'nullable|numeric',
+            'weight' => 'nullable|numeric',
             'subject' => 'required|integer',
             'status' => 'required|string',
             'creation_date' => 'required|date',
             'species' => 'required|string|max:100',
-            'description' => 'nullable|string|max:500'
+            'description' => 'nullable|string|max:500',
+            'visual' => 'nullable|string|max:500'
         ]);
 
         $toy->update($request->all());

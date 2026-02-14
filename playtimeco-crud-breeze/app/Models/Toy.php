@@ -19,12 +19,13 @@ class Toy extends Model
         "status",
         "creation_date",
         "species",
-        "description"
+        "description",
+        "visual"
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }

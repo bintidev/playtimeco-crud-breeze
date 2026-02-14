@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @section('title')
-        <title>{{ config('app.name', 'PlaytimeCo') }}</title>
-    @endsection
-    <link rel="shortcut icon" href="{{ asset('logo.png') }}" type="image/x-icon">
+    <title>System</title>
+
+    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -24,7 +23,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans bg-[url(/public/bg.jpg)] bg-no-repeat bg-center bg-cover bg-fixed">
+<body class="font-sans bg-[url(/public/img/bg.jpg)] bg-no-repeat bg-center bg-cover bg-fixed">
     <div class="min-h-screen font-[Fredoka]">
         @include('layouts.navigation')
 

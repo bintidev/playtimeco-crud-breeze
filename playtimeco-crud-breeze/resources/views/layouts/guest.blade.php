@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="shortcut icon" href="public/logo.png" type="image/x-icon">
+    <title>PlaytimeCo</title>
 
-    @section('title')
-        <title>PlaytimeCo</title>
-    @endsection
+    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -26,16 +24,16 @@
 </head>
 
 <body
-    class="font-sans text-gray-900 antialiased bg-[url(/public/welcome.jpg)] bg-no-repeat bg-center bg-cover backdrop-blur-xl backdrop-brightness-100">
+    class="font-sans text-gray-900 antialiased bg-[url(/public/img/welcome.jpg)] bg-no-repeat bg-center bg-cover backdrop-blur-xl backdrop-brightness-100">
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
         <div class="mt-8">
-            <a href="/">
+            <a href="{{ route('dashboard') }}">
                 <x-application-logo />
             </a>
         </div>
 
         <div
-            class="min-w-[800px] w-full sm:max-w-md m-10 p-[25px] bg-[#FFF7EC] overflow-hidden border-[5px] border-[#FFB544] shadow-[10px_10px_0_rgb(255_181_68/0.43)]">
+            class="lg:min-w-[600px] sm:max-w-md m-10 p-[25px] bg-[#FFF7EC] overflow-hidden border-[5px] border-[#FFB544] shadow-[10px_10px_0_rgb(255_181_68/0.43)]">
             {{ $slot }}
         </div>
     </div>
