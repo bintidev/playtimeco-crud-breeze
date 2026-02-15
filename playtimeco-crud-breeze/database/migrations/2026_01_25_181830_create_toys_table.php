@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('gender', ['Male', 'Female']);
             $table->float('height', 2)->nullable();
             $table->float('weight', 2)->nullable();
-            $table->integer('subject');
+            $table->integer('subject')->unique('subject');
             $table->enum('status', ['Alive', 'Deceased']);
             $table->date('creation_date');
             $table->string('species');
