@@ -21,6 +21,11 @@
                 </a>
             </div>
 
+            <div class="mb-6">
+                <x-success-message />
+                <x-error-message />
+            </div>
+
             <div>
                 <div
                     class="relative flex flex-col items-center border-2 border-[#FFB544] shadow-[10px_10px_0_rgb(255_181_68/0.43)] bg-[#FFF7EC] min-w-full transition-all duration-500 md:flex-row md:max-w-3xl overflow-hidden">

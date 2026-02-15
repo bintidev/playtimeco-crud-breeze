@@ -20,6 +20,11 @@
                     Initiate New Toy</a>
             </div>
 
+            <div class="mb-6">
+                <x-success-message />
+                <x-error-message />
+            </div>
+
             <div class="flex justify-center align-center grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
                 @foreach ($toys as $toy)
                     <div
