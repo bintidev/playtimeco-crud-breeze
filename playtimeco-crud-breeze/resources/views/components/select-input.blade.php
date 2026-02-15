@@ -1,7 +1,7 @@
-@props(['disabled' => false])
+@props(['disabled' => false, 'toy' => null])
 
 <select @disabled($disabled)
-    {{ $attributes->merge(['class' => 'border-5 border-[#FF6E7F] bg-white-900 text-[#353e43] border focus:border-[#FF6E7F] focus:ring-[#FF6E7F] shadow-sm']) }}>
-    <option value="alive">Alive</option>
-    <option value="deceased">Deceased</option>
+    {{ $attributes->merge(['class' => 'border border-[#FF6E7F] bg-white text-[#353e43] focus:border-[#FF6E7F] focus:ring-[#FF6E7F] shadow-sm']) }}>
+    <option value="Alive" {{ old('status', $toy->status ?? '') === 'Alive' ? 'selected' : '' }}>Alive</option>
+    <option value="Deceased" {{ old('status', $toy->status ?? '') === 'Deceased' ? 'selected' : '' }}>Deceased</option>
 </select>

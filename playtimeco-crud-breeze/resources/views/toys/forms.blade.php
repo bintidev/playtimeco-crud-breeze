@@ -92,8 +92,7 @@
 <div class="mt-4">
     <x-input-label for="status" :value="__('*Status')" />
 
-    <x-select-input id="status" class="block mt-1 w-full" name="status" autocomplete="name"
-        value="{{ old('status', $toy->status ?? '') }}" />
+    <x-select-input id="status" class="block mt-1 w-full" name="status" autocomplete="name" :toy="$toy" />
 
     <x-input-error :messages="$errors->get('status')" class="mt-2" />
 
